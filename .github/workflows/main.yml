@@ -21,6 +21,10 @@ jobs:
           name: code
           path: .
           include-hidden-files: true
+  Call-workflow:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      who-to-greet: '@octocat'
 
   Linting:
     runs-on: ubuntu-latest
