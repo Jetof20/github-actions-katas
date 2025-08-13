@@ -1,23 +1,10 @@
-name: CI
-on:
-  push:
-    branches: main
-  pull_request:
-    branches: main
-  workflow_dispatch:
-
+name: Main workflow
+on: push
 jobs:
-  build:
+  Build:
     runs-on: ubuntu-latest
+    container: gradle:6-jdk11
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v5
-      - name: run a script
-        run: echo Hello Darkness!
-
-      - name: run a long cmd
-        run: |
-          echo My old friend
-          echo I hecking love github.
-          
-        
+      - name: Clone down repository
+        uses: actions/checkout@v4       
+      - run: ci/build-app.sh
