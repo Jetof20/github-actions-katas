@@ -1,0 +1,23 @@
+name: CI
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v5
+      - name: run a script
+        run: echo Hello Darkness!
+
+      - name: run a long cmd
+        run: |
+          echo My old friend
+          echo I hecking love github.
+          
+        
